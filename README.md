@@ -144,6 +144,47 @@ This bridge is designed to work with the Cloud-Eye LXR v16 AI system, providing:
 - **Dynamic File Management**: Read/write operations for AI-generated code
 - **Deployment Monitoring**: Railway API queries for deployment status
 
+## Cloud-Eye Sync Bridge
+
+This repository integrates with Perplexity Spaces via a **Google Drive Sync** workflow for persistent knowledge management.
+
+### Architecture
+
+1.  **Source**: The local Git Repository (`Cloud-Eye-Prime/cloud-eye-mcp-bridge`).
+2.  **Bridge**: A local script (`sync_to_drive.ps1`) pushes key documentation files (`.md`, `.docx`, `.pdf`) to a designated Google Drive folder.
+3.  **Destination**: Perplexity Space connected via the **Google Drive Connector**.
+
+### Implementation
+
+#### The Local Sync Script (The "Pusher")
+A PowerShell script acts as the bridge, copying relevant documentation from the repo to the Google Drive sync folder.
+
+```powershell
+# sync_to_drive.ps1
+$Source = "C:\Users\grego\Desktop\CloudEye\production\cloud-eye-mcp-bridge\*.md"
+$Dest = "G:\My Drive\Cloud-Eye-Sync-Slot\"
+Copy-Item $Source $Dest -Force
+Write-Host "Docs synced to Google Drive [Time: $(Get-Date)]"
+```
+
+*Recommended: Trigger this via a git `post-commit` hook for full automation.*
+
+#### The Perplexity Connector (The "Puller")
+- **Enable** the Google Drive Connector in Perplexity User Settings.
+- **Connect** the `Cloud-Eye-Sync-Slot` folder to the Perplexity Space as a "File Source".
+- **Result**: Perplexity automatically indexes updates to these files for semantic search (RAG).
+
+#### Strategic Rationale
+
+| Feature | Git MCP Tool | Drive Sync Bridge |
+| :--- | :--- | :--- |
+| **Access Type** | Real-time, Raw Code | Persistent, Semantic Search (RAG) |
+| **Best For** | "Check line 42 of `main.py`" | "What are the architectural principles?" |
+| **Content** | Source Code (`.py`, `.js`) | Documentation, Logs, Concepts |
+| **Memory** | Ephemeral (Tool Call) | Long-term (Knowledge Base) |
+
+This hybrid approach leverages the best of both worlds: **Git MCP** for code execution and state verification, and **Drive Sync** for deep contextual understanding.
+
 ## Wu Xing Philosophy
 
 The health endpoint reflects the Water element (流动, liúdòng) - representing flow, adaptability, and the seamless bridge between systems.
