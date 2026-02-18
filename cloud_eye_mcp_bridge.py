@@ -17,13 +17,6 @@ try:
 except ImportError:
     print("[WARN] Librarian 2.0 not available — librarian2/ package not found")
 
-# ── Librarian 2.0 Extended Endpoints (semantic search, guidance, briefing) ──
-try:
-    from librarian2_endpoints import mount_librarian2_endpoints
-    mount_librarian2_endpoints(app)
-    print("[OK] Librarian 2.0 extended endpoints mounted")
-except ImportError:
-    print("[WARN] Librarian 2.0 extended endpoints not available")
 
 # ── PowerShell Bridge — Defensive .bat Execution Layer ──────────────────────
 try:
@@ -91,7 +84,6 @@ def health_check():
         "version": "0.3.0",
         "modules": {
             "librarian2": "active",
-            "librarian2_endpoints": "active",
             "powershell_bridge": "active"
         }
     }
