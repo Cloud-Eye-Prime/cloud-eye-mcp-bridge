@@ -7,7 +7,14 @@ from fastapi import FastAPI, HTTPException, Header
 from pydantic import BaseModel
 import uvicorn
 
-app = FastAPI(title="Cloud-Eye MCP Bridge", version="0.1.0")
+app = FastAPI(title="Cloud-Eye MCP Bridge", version="0.2.0")
+
+# ── Librarian 2.0 — Persistence Nervous System ──────────────────────────────
+try:
+    from librarian2.api import mount_librarian2
+    mount_librarian2(app)
+except ImportError:
+    print("[WARN] Librarian 2.0 not available — librarian2/ package not found")
 
 # ============================================================================
 # Security
