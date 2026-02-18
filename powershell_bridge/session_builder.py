@@ -33,7 +33,7 @@ param(
     [Parameter(Mandatory=$true)][string]$SessionId,
     [Parameter(Mandatory=$true)][string]$ErrorStrategy
 )
-$ErrorActionPreference = 'Continue'
+$ErrorActionPreference = 'Stop'
 $globalStart = Get-Date
 $commandsPath = Join-Path $RunDir 'commands.json'
 $reportPath   = Join-Path $RunDir 'report.json'

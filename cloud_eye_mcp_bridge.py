@@ -77,15 +77,24 @@ def get_repo_path(custom_path: Optional[str] = None) -> Path:
 # ============================================================================
 @app.get("/health")
 def health_check():
+    modules = {}
+    try:
+        from librarian2 import api as _l2
+        modules["librarian2"] = "active"
+    except ImportError:
+        modules["librarian2"] = "unavailable"
+    try:
+        from powershell_bridge import router as _ps
+        modules["powershell_bridge"] = "active" if os.name == "nt" else "loaded (no .bat on linux)"
+    except ImportError:
+        modules["powershell_bridge"] = "unavailable"
     return {
         "status": "atmospheric",
         "element": "water",
         "flow": "ready",
-        "version": "0.3.0",
-        "modules": {
-            "librarian2": "active",
-            "powershell_bridge": "active"
-        }
+        "version": "0.3.1",
+        "platform": os.name,
+        "modules": modules
     }
 
 @app.get("/git/status")

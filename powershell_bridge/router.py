@@ -55,6 +55,8 @@ def ps_execute(req: ExecuteRequest, authorization: Optional[str] = Header(None))
     Every command becomes a replayable session with structured JSON logs.
     """
     _auth(authorization)
+    if not req.commands:
+        raise HTTPException(status_code=400, detail="No commands provided")
     session_id = req.session_id or new_session_id()
     run_dir = ensure_run_dir(RUNS_DIR, session_id)
 
