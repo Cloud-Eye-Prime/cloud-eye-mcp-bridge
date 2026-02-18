@@ -7,14 +7,31 @@ from fastapi import FastAPI, HTTPException, Header
 from pydantic import BaseModel
 import uvicorn
 
-app = FastAPI(title="Cloud-Eye MCP Bridge", version="0.2.0")
+app = FastAPI(title="Cloud-Eye MCP Bridge", version="0.3.0")
 
 # ── Librarian 2.0 — Persistence Nervous System ──────────────────────────────
 try:
     from librarian2.api import mount_librarian2
     mount_librarian2(app)
+    print("[OK] Librarian 2.0 mounted")
 except ImportError:
     print("[WARN] Librarian 2.0 not available — librarian2/ package not found")
+
+# ── Librarian 2.0 Extended Endpoints (semantic search, guidance, briefing) ──
+try:
+    from librarian2_endpoints import mount_librarian2_endpoints
+    mount_librarian2_endpoints(app)
+    print("[OK] Librarian 2.0 extended endpoints mounted")
+except ImportError:
+    print("[WARN] Librarian 2.0 extended endpoints not available")
+
+# ── PowerShell Bridge — Defensive .bat Execution Layer ──────────────────────
+try:
+    from powershell_bridge.router import router as ps_router
+    app.include_router(ps_router, prefix="/powershell")
+    print("[OK] PowerShell Bridge mounted at /powershell")
+except ImportError:
+    print("[WARN] PowerShell Bridge not available — powershell_bridge/ package not found")
 
 # ============================================================================
 # Security
@@ -67,7 +84,17 @@ def get_repo_path(custom_path: Optional[str] = None) -> Path:
 # ============================================================================
 @app.get("/health")
 def health_check():
-    return {"status": "atmospheric", "element": "water", "flow": "ready"}
+    return {
+        "status": "atmospheric",
+        "element": "water",
+        "flow": "ready",
+        "version": "0.3.0",
+        "modules": {
+            "librarian2": "active",
+            "librarian2_endpoints": "active",
+            "powershell_bridge": "active"
+        }
+    }
 
 @app.get("/git/status")
 def git_status(repo_path: Optional[str] = None, authorization: Optional[str] = Header(None)):
@@ -135,7 +162,6 @@ def fs_read(req: FileReadRequest, authorization: Optional[str] = Header(None)):
     try:
         base = get_repo_path(req.repo_path)
         file_path = (base / req.path).resolve()
-        # Security check: ensure path is inside repo
         if not str(file_path).startswith(str(base)):
             raise HTTPException(status_code=403, detail="Path traversal not allowed")
         content = file_path.read_text(encoding="utf-8")
