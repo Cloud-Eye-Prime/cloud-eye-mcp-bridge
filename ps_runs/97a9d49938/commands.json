@@ -1,0 +1,23 @@
+{
+  "session_id": "97a9d49938",
+  "commands": [
+    {
+      "command": "Write-Output 'before error'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Get-Item 'C:\\nonexistent_file_xyz_dragon.txt'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'after error'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+﻿{
+    "session_id":  "43aada8eae",
+    "status":  "success",
+    "started_at":  "2026-02-18T15:15:50.7875758-08:00",
+    "ended_at":  "2026-02-18T15:15:51.4753110-08:00",
+    "failed":  null,
+    "results":  [
+                    {
+                        "ok":  false,
+                        "command":  "Get-ChildItem C:\\NONEXISTENT_PATH_99999",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:15:51.2372079-08:00",
+                        "ended_at":  "2026-02-18T15:15:51.3902148-08:00",
+                        "error":  "Cannot find path \u0027C:\\NONEXISTENT_PATH_99999\u0027 because it does not exist."
+                    },
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \u0027I should still run\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:15:51.4100012-08:00",
+                        "ended_at":  "2026-02-18T15:15:51.4287276-08:00",
+                        "output":  "I should still run\r\n"
+                    }
+                ]
+}

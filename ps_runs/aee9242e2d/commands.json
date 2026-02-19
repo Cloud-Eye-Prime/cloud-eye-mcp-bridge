@@ -1,0 +1,23 @@
+{
+  "session_id": "aee9242e2d",
+  "commands": [
+    {
+      "command": "Write-Output 'before'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Get-Item 'C:\\nonexistent_xyz_dragon_test.txt'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'after'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

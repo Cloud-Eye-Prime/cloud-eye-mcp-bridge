@@ -1,0 +1,25 @@
+﻿{
+    "session_id":  "74100404c9",
+    "status":  "success",
+    "started_at":  "2026-02-18T15:14:09.5332692-08:00",
+    "ended_at":  "2026-02-18T15:14:10.5343421-08:00",
+    "failed":  0,
+    "results":  [
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \"Bridge alive\"",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:14:10.0490946-08:00",
+                        "ended_at":  "2026-02-18T15:14:10.2432039-08:00",
+                        "output":  "Bridge alive\r\n"
+                    },
+                    {
+                        "ok":  true,
+                        "command":  "Get-Date -Format o",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:14:10.3158851-08:00",
+                        "ended_at":  "2026-02-18T15:14:10.4555556-08:00",
+                        "output":  "2026-02-18T15:14:10.4545560-08:00\r\n"
+                    }
+                ]
+}

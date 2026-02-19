@@ -1,0 +1,17 @@
+{
+  "session_id": "d72b971a07",
+  "commands": [
+    {
+      "command": "Write-Output 'Bridge alive'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Get-Date -Format o",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

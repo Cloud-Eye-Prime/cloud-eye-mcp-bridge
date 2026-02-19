@@ -1,0 +1,17 @@
+{
+  "session_id": "22335a77e3",
+  "commands": [
+    {
+      "command": "Get-ChildItem C:\\NONEXISTENT_99999",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'Should NOT appear if halt works'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

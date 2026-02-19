@@ -1,0 +1,33 @@
+﻿{
+    "session_id":  "aee9242e2d",
+    "status":  "success",
+    "started_at":  "2026-02-18T15:00:25.4243208-08:00",
+    "ended_at":  "2026-02-18T15:00:26.2336542-08:00",
+    "failed":  null,
+    "results":  [
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \u0027before\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:00:25.8444028-08:00",
+                        "ended_at":  "2026-02-18T15:00:25.9641645-08:00",
+                        "output":  "before\r\n"
+                    },
+                    {
+                        "ok":  false,
+                        "command":  "Get-Item \u0027C:\\nonexistent_xyz_dragon_test.txt\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:00:26.0337280-08:00",
+                        "ended_at":  "2026-02-18T15:00:26.1240406-08:00",
+                        "error":  "Cannot find path \u0027C:\\nonexistent_xyz_dragon_test.txt\u0027 because it does not exist."
+                    },
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \u0027after\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:00:26.1316767-08:00",
+                        "ended_at":  "2026-02-18T15:00:26.1827006-08:00",
+                        "output":  "after\r\n"
+                    }
+                ]
+}

@@ -1,0 +1,25 @@
+﻿{
+    "session_id":  "670d0328b1",
+    "status":  "success",
+    "started_at":  "2026-02-18T15:20:55.2409858-08:00",
+    "ended_at":  "2026-02-18T15:20:55.9861168-08:00",
+    "failed":  0,
+    "results":  [
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \u0027Bridge validated\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:20:55.7584726-08:00",
+                        "ended_at":  "2026-02-18T15:20:55.8972417-08:00",
+                        "output":  "Bridge validated\r\n"
+                    },
+                    {
+                        "ok":  true,
+                        "command":  "Get-Date -Format o",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:20:55.9102094-08:00",
+                        "ended_at":  "2026-02-18T15:20:55.9306335-08:00",
+                        "output":  "2026-02-18T15:20:55.9306335-08:00\r\n"
+                    }
+                ]
+}

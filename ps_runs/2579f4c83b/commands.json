@@ -1,0 +1,17 @@
+{
+  "session_id": "2579f4c83b",
+  "commands": [
+    {
+      "command": "Get-ChildItem C:\\NONEXISTENT_PATH_12345",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output \"Should not reach if halt\"",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

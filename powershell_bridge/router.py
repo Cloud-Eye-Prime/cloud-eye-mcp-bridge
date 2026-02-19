@@ -98,7 +98,7 @@ def get_run(session_id: str, authorization: Optional[str] = Header(None)):
         raise HTTPException(status_code=404, detail="Run not found")
     return {
         "session_id": session_id,
-        "report": json.loads(report_path.read_text(encoding="utf-8")),
+        "report": json.loads(report_path.read_text(encoding="utf-8-sig")),
         "log": log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
     }
 
@@ -111,7 +111,7 @@ def list_sessions(authorization: Optional[str] = Header(None)):
     sessions = []
     for report_file in RUNS_DIR.glob("*/report.json"):
         try:
-            data = json.loads(report_file.read_text(encoding="utf-8"))
+            data = json.loads(report_file.read_text(encoding="utf-8-sig"))
             sessions.append({
                 "session_id": report_file.parent.name,
                 "status": data.get("status", "unknown"),

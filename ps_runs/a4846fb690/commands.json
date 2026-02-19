@@ -1,0 +1,17 @@
+{
+  "session_id": "a4846fb690",
+  "commands": [
+    {
+      "command": "Get-ChildItem C:\\NONEXISTENT_PATH_99999",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'I should still run'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

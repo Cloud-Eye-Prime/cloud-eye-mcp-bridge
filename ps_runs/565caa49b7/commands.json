@@ -1,0 +1,17 @@
+{
+  "session_id": "565caa49b7",
+  "commands": [
+    {
+      "command": "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'Dragon bridge validated'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

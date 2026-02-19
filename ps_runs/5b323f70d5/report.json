@@ -1,0 +1,25 @@
+﻿{
+    "session_id":  "5b323f70d5",
+    "status":  "success",
+    "started_at":  "2026-02-18T14:58:34.4977607-08:00",
+    "ended_at":  "2026-02-18T14:58:35.4223316-08:00",
+    "failed":  0,
+    "results":  [
+                    {
+                        "ok":  true,
+                        "command":  "Get-Date -Format \u0027yyyy-MM-dd HH:mm:ss\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T14:58:35.0815236-08:00",
+                        "ended_at":  "2026-02-18T14:58:35.2224090-08:00",
+                        "output":  "2026-02-18 14:58:35\r\n"
+                    },
+                    {
+                        "ok":  true,
+                        "command":  "Write-Output \u0027Bridge validated by Dragon\u0027",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T14:58:35.2402777-08:00",
+                        "ended_at":  "2026-02-18T14:58:35.3223295-08:00",
+                        "output":  "Bridge validated by Dragon\r\n"
+                    }
+                ]
+}

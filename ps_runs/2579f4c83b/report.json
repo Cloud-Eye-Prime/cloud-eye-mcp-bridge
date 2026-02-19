@@ -1,0 +1,17 @@
+﻿{
+    "session_id":  "2579f4c83b",
+    "status":  "success",
+    "started_at":  "2026-02-18T15:14:15.3037968-08:00",
+    "ended_at":  "2026-02-18T15:14:15.9787891-08:00",
+    "failed":  null,
+    "results":  [
+                    {
+                        "ok":  false,
+                        "command":  "Get-ChildItem C:\\NONEXISTENT_PATH_12345",
+                        "working_dir":  null,
+                        "started_at":  "2026-02-18T15:14:15.7300405-08:00",
+                        "ended_at":  "2026-02-18T15:14:15.9124664-08:00",
+                        "error":  "Cannot find path \u0027C:\\NONEXISTENT_PATH_12345\u0027 because it does not exist."
+                    }
+                ]
+}

@@ -40,7 +40,8 @@ def run_session(run_dir: Path, timeout_s: int) -> Tuple[int, dict, str]:
         )
         report = {}
         if report_path.exists():
-            report = json.loads(report_path.read_text(encoding="utf-8"))
+            raw = report_path.read_text(encoding="utf-8-sig")  # utf-8-sig strips BOM
+            report = json.loads(raw)
         return completed.returncode, report, tail_text(log_path)
     except subprocess.TimeoutExpired:
         return -1, {"error": "Execution timeout"}, tail_text(log_path)

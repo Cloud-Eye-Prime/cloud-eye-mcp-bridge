@@ -1,33 +1,4 @@
-"""
-PowerShell Bridge — Session builder.
-Writes commands.json, run.ps1, and the defensive run.bat shim.
-"""
-import json
-import uuid
-from pathlib import Path
-from datetime import datetime
 
-
-def new_session_id() -> str:
-    return uuid.uuid4().hex[:10]
-
-
-def ensure_run_dir(runs_dir: Path, session_id: str) -> Path:
-    d = (runs_dir / session_id).resolve()
-    d.mkdir(parents=True, exist_ok=True)
-    return d
-
-
-def write_commands_json(run_dir: Path, payload: dict) -> Path:
-    p = run_dir / "commands.json"
-    p.write_text(json.dumps(payload, indent=2), encoding="utf-8")
-    return p
-
-
-def write_ps1(run_dir: Path) -> Path:
-    """Write run.ps1 — reads commands.json, executes sequentially, writes report.json + run.log."""
-    ps1 = run_dir / "run.ps1"
-    ps1.write_text(r"""
 param(
     [Parameter(Mandatory=$true)][string]$RunDir,
     [Parameter(Mandatory=$true)][string]$SessionId,
@@ -94,25 +65,3 @@ $report = [PSCustomObject]@{
 $report | ConvertTo-Json -Depth 8 | Set-Content -Path $reportPath -Encoding utf8
 LogLine "END status=$status"
 exit $(if ($failed -gt 0) { 1 } else { 0 })
-""", encoding="utf-8")
-    return ps1
-
-
-def write_bat(run_dir: Path, session_id: str, error_strategy: str, powershell_exe: str) -> Path:
-    """Write run.bat — the Windows-native filter shim that calls run.ps1."""
-    bat = run_dir / "run.bat"
-    bat.write_text(
-        f"@echo off\n"
-        f"setlocal\n"
-        f"set RUNDIR={run_dir}\n"
-        f"set SESSIONID={session_id}\n"
-        f"set ERRORSTRATEGY={error_strategy}\n"
-        f"{powershell_exe} -NoProfile -ExecutionPolicy Bypass "
-        f"-File \"%RUNDIR%\\run.ps1\" "
-        f"-RunDir \"%RUNDIR%\" "
-        f"-SessionId \"%SESSIONID%\" "
-        f"-ErrorStrategy \"%ERRORSTRATEGY%\"\n"
-        f"exit /b %ERRORLEVEL%\n",
-        encoding="utf-8"
-    )
-    return bat

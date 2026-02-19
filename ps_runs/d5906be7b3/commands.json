@@ -1,0 +1,17 @@
+{
+  "session_id": "d5906be7b3",
+  "commands": [
+    {
+      "command": "Get-ChildItem C:\\NONEXISTENT_99999",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Write-Output 'I ran after error'",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}
