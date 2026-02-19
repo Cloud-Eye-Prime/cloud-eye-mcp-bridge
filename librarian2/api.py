@@ -17,9 +17,9 @@ from typing import Optional
 from fastapi import FastAPI, Query
 from fastapi.responses import PlainTextResponse, JSONResponse
 
-from scanner import full_scan, RealitySnapshot
-from detector import detect_illusions
-from engine import synthesize, OrientationBriefing
+from .scanner import full_scan, RealitySnapshot
+from .detector import detect_illusions
+from .engine import synthesize, OrientationBriefing
 
 
 # ─── Cache (single-scan cache to avoid hammering services) ────────────────────

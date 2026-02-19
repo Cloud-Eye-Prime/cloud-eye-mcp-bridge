@@ -1,0 +1,17 @@
+{
+  "session_id": "e6e4782da2",
+  "commands": [
+    {
+      "command": "Write-Output bridge-validated",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    },
+    {
+      "command": "Get-Date -Format yyyy-MM-dd_HH:mm:ss",
+      "args": [],
+      "working_dir": null,
+      "timeout_s": 60
+    }
+  ]
+}

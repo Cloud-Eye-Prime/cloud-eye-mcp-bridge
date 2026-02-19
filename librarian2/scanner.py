@@ -22,7 +22,7 @@ except ImportError:
     HTTPX_AVAILABLE = False
     import urllib.request
 
-from config import REPOS, SERVICES, HTTP_TIMEOUT, LIBRARIAN_DB, SAPPHIRE_DB
+from .config import REPOS, SERVICES, HTTP_TIMEOUT, LIBRARIAN_DB, SAPPHIRE_DB
 
 
 # ─── Data Structures ──────────────────────────────────────────────────────────

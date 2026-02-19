@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 from dataclasses import dataclass
 
-from config import LIBRARIAN_DB, SCAN_CURRENT_FOCUS_LIMIT, ILLUSION_RECENT_HOURS
-from scanner import RealitySnapshot
+from .config import LIBRARIAN_DB, SCAN_CURRENT_FOCUS_LIMIT, ILLUSION_RECENT_HOURS
+from .scanner import RealitySnapshot
 
 
 # ─── Verdict Types ────────────────────────────────────────────────────────────

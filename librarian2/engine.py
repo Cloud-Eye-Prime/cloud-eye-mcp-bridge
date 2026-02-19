@@ -11,9 +11,9 @@ from pathlib import Path
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field
 
-from config import LIBRARIAN_DB, SCAN_ESSENCE_LIMIT, SAPPHIRE_DB
-from scanner import RealitySnapshot, GitState, ServiceState
-from detector import Claim, VERIFIED, ILLUSION, UNVERIFIABLE, SEVERITY_HIGH, SEVERITY_MEDIUM
+from .config import LIBRARIAN_DB, SCAN_ESSENCE_LIMIT, SAPPHIRE_DB
+from .scanner import RealitySnapshot, GitState, ServiceState
+from .detector import Claim, VERIFIED, ILLUSION, UNVERIFIABLE, SEVERITY_HIGH, SEVERITY_MEDIUM
 
 
 @dataclass
